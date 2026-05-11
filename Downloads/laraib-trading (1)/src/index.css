@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--color-bg);
+  --color-primary: var(--color-p);
+  --color-accent: var(--color-acc);
+  --color-secondary: var(--color-sec);
+  --color-surface: var(--color-surf);
+  --color-surface-hover: var(--color-surf-hover);
+  --color-line: var(--color-l);
+  --color-text-dim: var(--color-txt-dim);
+  --color-navy: #002b5b;
+  --color-gold: #b8860b;
+  
+  --font-display: var(--font-disp);
+  --font-body: var(--font-b);
+  --font-mono: "IBM Plex Mono", monospace;
+  
+  --radius-sophisticated: 12px;
+  --shadow-sophisticated: var(--sh-soph);
+}
+
+@layer base {
+  :root {
+    --color-bg: #fbfbfb;
+    --color-p: #002b5b;
+    --color-acc: #b8860b;
+    --color-sec: #002b5b;
+    --color-surf: #ffffff;
+    --color-surf-hover: #f1f5f9;
+    --color-l: #e2e8f0;
+    --color-txt-dim: #64748b;
+    
+    --font-disp: "Clash Display", "Space Grotesk", sans-serif;
+    --font-b: "Inter", system-ui, sans-serif;
+
+    --sh-soph: 0 10px 30px -10px rgba(0, 43, 91, 0.1);
+  }
+
+  .project-hifazat {
+    --color-bg: #080812;
+    --color-p: #ffffff;
+    --color-acc: #00e87a;
+    --color-sec: #00c8f0;
+    --color-surf: #121220;
+    --color-surf-hover: #1a1a2e;
+    --color-l: rgba(255, 255, 255, 0.1);
+    --color-txt-dim: rgba(255, 255, 255, 0.6);
+    
+    --font-disp: "Space Grotesk", sans-serif;
+    --font-b: "Inter", sans-serif;
+
+    --sh-soph: 0 4px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  body {
+    @apply bg-background text-primary font-body antialiased transition-colors duration-500;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-[10px] bg-white/80;
+    border-bottom: 1px solid var(--color-line);
+  }
+}
+
+.hero-gradient {
+  background: linear-gradient(rgba(0,43,91,0.85), rgba(0,43,91,0.7)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=2000');
+  background-size: cover;
+  background-position: center;
+}
+
+.stats-grid {
+  @apply grid grid-cols-1 md:grid-cols-3 gap-0 border-y border-line;
+}
+
+.stat-box {
+  @apply bg-white p-12 text-center border-r border-line last:border-r-0;
+}
+
+.action-btn {
+  @apply bg-white border border-line p-5 rounded-[12px] text-center text-[12px] cursor-pointer hover:border-accent hover:shadow-lg transition-all;
+}
+
+.privacy-ring {
+  transform: rotate(-90deg);
+}
+
+.qr-scan-line {
+  animation: scan 2s ease-in-out infinite;
+}
+
+@keyframes scan {
+  0%, 100% { top: 0; }
+  50% { top: 100%; }
+}
+
+.journey-map {
+  @apply bg-surface border border-line rounded-[16px] p-6;
+}
+
+.journey-line {
+  @apply h-[2px] bg-line relative my-10 mx-5 flex justify-between items-center;
+}
+
+.node {
+  @apply w-3 h-3 bg-accent rounded-full relative;
+  box-shadow: 0 0 10px var(--color-accent);
+}
+
+.node::after {
+  content: attr(data-label);
+  @apply absolute top-5 left-1/2 -translate-x-1/2 text-[10px] whitespace-nowrap text-text-dim uppercase font-mono tracking-tighter;
+}
+
+.sound-wave {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(2); }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #1a1a2e;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #00c8f0;
+}

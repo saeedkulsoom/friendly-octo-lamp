@@ -1,0 +1,6 @@
+{
+  "name": "Laraib Trading",
+  "description": "Premium international trading company for garments and industrial sewing goods with 40+ years of excellence.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": []
+}
